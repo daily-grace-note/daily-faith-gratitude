@@ -1,13 +1,49 @@
-
 <!DOCTYPE html>
-<html lang="ko">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>매일의 믿음과 감사</title>
-</head>
-<body>
-  <h1>🌷 매일의 믿음과 감사</h1>
-  <p>오늘도 감사한 하루를 기록해요.</p>
-</body>
-</html>
+<html lang="ko"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>✨ 매일의 믿음과 감사</title>
+<style>
+:root{font-family:system-ui,-apple-system,'Noto Sans KR',sans-serif;color:#315d80;background:#e7f5ff}*{box-sizing:border-box}body{margin:0;background:linear-gradient(180deg,#d7efff,#eef8ff 50%,#e7f5ff);min-height:100vh}.wrap{max-width:760px;margin:auto;padding:22px 16px 60px}header{text-align:center;padding:22px 4px}h1{font-size:clamp(24px,5vw,34px);margin:5px 0;color:#376d9d}header p{color:#6389a6;margin:9px 0}.card{background:white;border-radius:20px;padding:20px;margin:14px 0;box-shadow:0 4px 18px #5685a017}.card h2{font-size:19px;margin:0 0 16px;color:#376d9d}label{display:block;font-size:14px;font-weight:700;margin:14px 0 7px}input,textarea{width:100%;border:1px solid #c6e2f5;background:#f3faff;border-radius:11px;padding:12px;font:inherit;color:#294e69;outline:none}input:focus,textarea:focus{border-color:#5b9fd2;box-shadow:0 0 0 3px #d5edff}textarea{resize:vertical;min-height:80px}.sep{height:1px;background:#dcecf7;margin:16px 0}.bar{display:flex;align-items:center;gap:9px;flex-wrap:wrap;justify-content:space-between}.actions{display:flex;gap:8px;flex-wrap:wrap}button{border:0;border-radius:12px;padding:11px 14px;font:inherit;font-weight:700;cursor:pointer;background:#d7edff;color:#376d9d}button.primary{background:#5b9fd2;color:white}button:disabled{opacity:.55;cursor:not-allowed}.hint,.status{font-size:13px;color:#668aa5}.status{min-height:20px;margin-top:8px}.hidden{display:none!important}.heart{font-size:32px;background:#f1f8ff;padding:12px 24px}.heart.done{background:#ffe6ee;color:#c7537b}.history{display:grid;gap:8px}.history button{text-align:left;font-weight:500}.topline{display:flex;align-items:center;justify-content:space-between;gap:8px;flex-wrap:wrap}.pill{border-radius:99px;padding:5px 10px;background:#d8ecfb;font-size:12px}.warning{color:#9b4e4e}.footer{text-align:center;font-size:12px;color:#7397af;margin-top:25px}
+</style></head><body><div class="wrap">
+<header><div>☁️ ✨ ☁️</div><h1>✨ 매일의 믿음과 감사</h1><p>말씀과 감사로 채우는 나의 하루 ☁️</p></header>
+<div class="card"><div class="bar"><div><strong>🔐 나의 기록</strong><div id="userInfo" class="hint">Google 로그인 후 기록을 안전하게 저장할 수 있어요.</div></div><div class="actions"><button id="login" class="primary">Google 로그인</button><button id="logout" class="hidden">로그아웃</button></div></div><div id="authStatus" class="status"></div></div>
+<div id="editor" class="hidden">
+<div class="card"><div class="topline"><h2>📅 오늘의 기록</h2><span id="saveStatus" class="pill">저장 대기</span></div><label for="date">날짜</label><input id="date" type="date"><label for="title">제목</label><input id="title" placeholder="오늘의 제목을 적어주세요."></div>
+<div class="card"><h2>📖 오늘의 말씀</h2><label for="verse">성경 말씀</label><textarea id="verse" placeholder="오늘 마음에 남은 말씀을 적어주세요."></textarea><label for="meditation">☁️ 말씀 묵상</label><textarea id="meditation" placeholder="말씀을 읽고 느낀 점을 적어주세요."></textarea></div>
+<div class="card"><h2>💬 질문과 답변</h2><label for="question">❓ 질문</label><textarea id="question" placeholder="말씀을 읽으며 궁금했던 점을 적어주세요."></textarea><div class="sep"></div><label for="answer">💬 답변</label><textarea id="answer" placeholder="질문에 대한 답변이나 깨달은 점을 적어주세요."></textarea></div>
+<div class="card"><h2>⭐ 오늘의 감사 세 가지</h2><label for="gratitude1">⭐ 첫 번째 감사</label><textarea id="gratitude1" placeholder="첫 번째 감사한 일을 적어주세요."></textarea><div class="sep"></div><label for="gratitude2">⭐ 두 번째 감사</label><textarea id="gratitude2" placeholder="두 번째 감사한 일을 적어주세요."></textarea><div class="sep"></div><label for="gratitude3">⭐ 세 번째 감사</label><textarea id="gratitude3" placeholder="세 번째 감사한 일을 적어주세요."></textarea></div>
+<div class="card"><h2>🙏 기도제목</h2><label for="prayer">오늘의 기도제목</label><textarea id="prayer" placeholder="기도하고 싶은 내용을 적어주세요."></textarea></div>
+<div class="card"><div class="bar"><div><h2>💗 오늘의 완료 스티커</h2><p class="hint">기록을 마치면 하트를 눌러주세요.</p></div><button id="heart" class="heart" aria-pressed="false" aria-label="완료 표시">♡</button></div><div class="actions"><button id="save" class="primary">지금 저장하기</button><button id="new">오늘 날짜로 이동</button></div></div>
+<div class="card"><h2>📅 지난 기록</h2><p class="hint">날짜를 선택하거나 아래 기록을 누르면 내용을 다시 보고 수정할 수 있어요.</p><div id="history" class="history"></div></div>
+<div class="card"><h2>💾 백업과 복원</h2><p class="hint">백업 파일에는 개인 기록이 포함되므로 안전한 곳에 보관해 주세요. 복원은 동일 날짜의 기록을 덮어쓸 수 있어요.</p><div class="actions"><button id="backup">JSON 백업 다운로드</button><button id="restore">백업 파일 복원</button><input id="restoreFile" class="hidden" type="file" accept="application/json,.json"></div><div id="backupStatus" class="status"></div></div>
+</div><div class="footer">✨ 매일의 믿음과 감사 · 나의 작은 감사 공간</div></div>
+<script type="module">
+import {initializeApp} from 'https://www.gstatic.com/firebasejs/10.14.1/firebase-app.js';
+import {getAuth,GoogleAuthProvider,signInWithPopup,signInWithRedirect,getRedirectResult,onAuthStateChanged,signOut} from 'https://www.gstatic.com/firebasejs/10.14.1/firebase-auth.js';
+import {getFirestore,doc,setDoc,getDoc,collection,getDocs,query,orderBy,writeBatch} from 'https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore.js';
+const firebaseConfig={apiKey:'AIzaSyD_MW2-wtIez6UmQVlj5aXHw_EDcYP_oGw',authDomain:'daily-faith-gratitude.firebaseapp.com',projectId:'daily-faith-gratitude',storageBucket:'daily-faith-gratitude.firebasestorage.app',messagingSenderId:'899575814202',appId:'1:899575814202:web:3413f334fdc2cc6d803d03'};
+const app=initializeApp(firebaseConfig),auth=getAuth(app),db=getFirestore(app),provider=new GoogleAuthProvider();
+const $=id=>document.getElementById(id), fields=['title','verse','meditation','question','answer','gratitude1','gratitude2','gratitude3','prayer'];
+let user=null,timer=null,loading=false,completed=false,revision=0,saveChain=Promise.resolve();
+const localDate=()=>{const d=new Date();return [d.getFullYear(),String(d.getMonth()+1).padStart(2,'0'),String(d.getDate()).padStart(2,'0')].join('-')};
+$('date').value=localDate();
+const entryRef=date=>doc(db,'users',user.uid,'entries',date);
+const status=(message,error=false)=>{$('saveStatus').textContent=message;$('saveStatus').classList.toggle('warning',error)};
+const readForm=()=>Object.fromEntries(fields.map(id=>[id,$(id).value]));
+function setCompleted(value){completed=!!value;$('heart').textContent=completed?'♥':'♡';$('heart').classList.toggle('done',completed);$('heart').setAttribute('aria-pressed',String(completed))}
+function fill(data={}){loading=true;for(const id of fields)$(id).value=data[id]||'';setCompleted(data.completed);loading=false}
+async function loadDate(){if(!user)return;clearTimeout(timer);revision++;const current=revision,date=$('date').value;if(!/^\d{4}-\d{2}-\d{2}$/.test(date))return;status('불러오는 중…');try{const snap=await getDoc(entryRef(date));if(current!==revision)return;fill(snap.exists()?snap.data():{});status(snap.exists()?'저장된 기록을 불러왔어요':'새 기록을 작성해 보세요')}catch(e){status('기록을 불러오지 못했어요: '+e.message,true)}}
+function queueSave(){if(loading||!user)return;clearTimeout(timer);status('작성 중…');timer=setTimeout(()=>save(),900)}
+function save(){if(!user)return Promise.resolve();clearTimeout(timer);const date=$('date').value;if(!/^\d{4}-\d{2}-\d{2}$/.test(date))return Promise.resolve();const data={...readForm(),completed,updatedAt:new Date().toISOString()};const current=revision;status('저장 중…');saveChain=saveChain.catch(()=>{}).then(async()=>{await setDoc(entryRef(date),data);if(current===revision){status('✓ 자동 저장 완료');await refreshHistory()}}).catch(e=>{if(current===revision)status('저장 실패: '+e.message,true)});return saveChain}
+async function refreshHistory(){if(!user)return;try{const snaps=await getDocs(collection(db,'users',user.uid,'entries'));const items=snaps.docs.map(s=>({date:s.id,...s.data()})).sort((a,b)=>b.date.localeCompare(a.date));$('history').replaceChildren();if(!items.length){$('history').textContent='아직 저장된 기록이 없어요.';return}for(const item of items){const b=document.createElement('button');b.textContent=`${item.completed?'💗':'📖'} ${item.date} · ${item.title||'제목 없는 기록'}`;b.addEventListener('click',async()=>{await saveChain;$('date').value=item.date;await loadDate();window.scrollTo({top:0,behavior:'smooth'})});$('history').append(b)}}catch(e){$('history').textContent='지난 기록을 불러오지 못했어요: '+e.message}}
+for(const id of fields)$(id).addEventListener('input',queueSave);
+$('date').addEventListener('change',async()=>{await saveChain;await loadDate()});
+$('heart').addEventListener('click',()=>{setCompleted(!completed);queueSave()});
+$('save').addEventListener('click',save);
+$('new').addEventListener('click',async()=>{await saveChain;$('date').value=localDate();await loadDate()});
+$('login').addEventListener('click',async()=>{try{$('authStatus').textContent='로그인 중…';await signInWithPopup(auth,provider)}catch(e){if(e.code==='auth/popup-blocked'){$('authStatus').textContent='팝업이 차단되어 다른 로그인 방식으로 전환해요.';await signInWithRedirect(auth,provider)}else{$('authStatus').textContent='로그인 실패: '+e.message}}});
+$('logout').addEventListener('click',async()=>{await saveChain;await signOut(auth)});
+getRedirectResult(auth).catch(e=>$('authStatus').textContent='로그인 확인 오류: '+e.message);
+onAuthStateChanged(auth,async u=>{user=u;clearTimeout(timer);revision++;$('editor').classList.toggle('hidden',!u);$('login').classList.toggle('hidden',!!u);$('logout').classList.toggle('hidden',!u);$('userInfo').textContent=u?`${u.displayName||'사용자'}님의 개인 기록입니다.`:'Google 로그인 후 기록을 안전하게 저장할 수 있어요.';$('authStatus').textContent='';if(u){await loadDate();await refreshHistory()}else fill({})});
+$('backup').addEventListener('click',async()=>{if(!user)return;try{$('backupStatus').textContent='백업 준비 중…';const snaps=await getDocs(collection(db,'users',user.uid,'entries'));const data={app:'daily-faith-gratitude',version:1,exportedAt:new Date().toISOString(),entries:Object.fromEntries(snaps.docs.map(s=>[s.id,s.data()]))};const url=URL.createObjectURL(new Blob([JSON.stringify(data,null,2)],{type:'application/json'}));const a=document.createElement('a');a.href=url;a.download=`감사노트-백업-${localDate()}.json`;a.click();setTimeout(()=>URL.revokeObjectURL(url),1000);$('backupStatus').textContent='백업 파일을 다운로드했어요.'}catch(e){$('backupStatus').textContent='백업 실패: '+e.message}});
+$('restore').addEventListener('click',()=>$('restoreFile').click());
+$('restoreFile').addEventListener('change',async e=>{const file=e.target.files?.[0];if(!file||!user)return;try{const data=JSON.parse(await file.text());if(data.app!=='daily-faith-gratitude'||!data.entries||typeof data.entries!=='object'||Array.isArray(data.entries))throw Error('올바른 감사노트 백업 파일이 아니에요.');const entries=Object.entries(data.entries);if(entries.some(([date,item])=>!/^\d{4}-\d{2}-\d{2}$/.test(date)||!item||typeof item!=='object'))throw Error('백업 데이터 형식이 올바르지 않아요.');if(!confirm(`${entries.length}개 기록을 복원할까요? 같은 날짜의 기존 기록은 덮어써집니다.`))return;$('backupStatus').textContent='복원 중…';for(let i=0;i<entries.length;i+=400){const batch=writeBatch(db);for(const [date,item] of entries.slice(i,i+400)){const safe=Object.fromEntries(fields.map(k=>[k,typeof item[k]==='string'?item[k]:'']));batch.set(entryRef(date),{...safe,completed:!!item.completed,updatedAt:new Date().toISOString()})}await batch.commit()}await loadDate();await refreshHistory();$('backupStatus').textContent=`${entries.length}개 기록을 복원했어요.`}catch(err){$('backupStatus').textContent='복원 실패: '+err.message}finally{e.target.value=''}});
+</script></body></html>
